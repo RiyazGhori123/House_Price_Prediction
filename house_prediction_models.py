@@ -630,3 +630,42 @@ plt.legend()
 plt.title('Actual vs. Predicted Prices (Line Plot) - SVR')
 plt.show()
 
+pip install tabulate
+
+from tabulate import tabulate
+
+# Create a list of models and their predictions
+models = [lr, lasso, ridge, dt, rf, xgb_reg, svr]
+model_names = ['Linear Regression', 'Lasso Regression', 'Ridge Regression', 'Decision Tree', 'Random Forest', 'XGBoost', 'SVR']
+predictions = [y_pred_lr, y_pred_lasso, y_pred_ridge, y_pred_dt, y_pred_rf, y_pred_xgb, y_pred_svr]
+
+# Initialize a list of dictionaries to store evaluation metrics
+model_metrics = []
+
+# Evaluate each model and populate the metrics
+for i, model in enumerate(models):
+    r2 = r2_score(y_test, predictions[i])
+    mae = mean_absolute_error(y_test, predictions[i])
+    mse = mean_squared_error(y_test, predictions[i])
+    rmse = np.sqrt(mse)
+
+    model_metrics.append({
+        'Model': model_names[i],
+        'R-squared (R2)': f'{r2:.3f}',
+        'Mean Absolute Error (MAE)': f'{mae:.3f}',
+        'Mean Squared Error (MSE)': f'{mse:.3f}',
+        'Root Mean Squared Error (RMSE)': f'{rmse:.3f}'
+    })
+
+# Print the metrics table
+table = tabulate(model_metrics, headers="keys", tablefmt="pretty")
+print("\nModel Evaluation Metrics:")
+print(table)
+
+# Find the best model based on R-squared
+best_model_idx = max(model_metrics, key=lambda x: float(x['R-squared (R2)']))
+best_model_name = best_model_idx['Model']
+best_r2 = best_model_idx['R-squared (R2)']
+
+print(f"\nThe best model is {best_model_name} with R2: {best_r2}")
+
