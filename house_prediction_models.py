@@ -202,43 +202,6 @@ import pickle
 
 pickle.dump(pipe,open('RidgeModel.pkl','wb'))
 
-# Convert 'total_sqft' to a numeric value (handling different formats)
-def convert_sqft_to_numeric(x):
-    try:
-        tokens = x.split()
-        if len(tokens) == 2:
-            return float(tokens[0])
-        if '-' in x:
-            tokens = x.split('-')
-            return (float(tokens[0]) + float(tokens[1])) / 2
-        return float(x)
-    except:
-        return None
-
-data['total_sqft'] = data['total_sqft'].apply(convert_sqft_to_numeric)
-
-# Handle missing values
-data = data.dropna()
-from sklearn.preprocessing import LabelEncoder
-
-
-# Encode categorical variables
-label_encoders = {}
-categorical_columns = ['area_type', 'availability', 'location', 'size', 'society']
-for col in categorical_columns:
-    le = LabelEncoder()
-    data[col] = le.fit_transform(data[col])
-    label_encoders[col] = le
-
-# Correlation matrix
-correlation_matrix = data.corr()
-sns.heatmap(correlation_matrix, annot=True)
-plt.show()
-
-# Pairplot for a quick overview
-sns.pairplot(data[['total_sqft', 'bath', 'balcony', 'price']])
-plt.show()
-
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
