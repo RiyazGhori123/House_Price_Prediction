@@ -426,3 +426,207 @@ plt.legend()
 plt.title('Scatter Plot of Actual vs. Predicted Prices (SVR)')
 plt.show()
 
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Residual Plot for Linear Regression
+residuals_lr = y_test - y_pred_lr
+sns.residplot(x=y_pred_lr, y=residuals_lr, color='blue', label='Linear Regression')
+plt.xlabel('Fitted Values')
+plt.ylabel('Residuals')
+plt.legend()
+plt.title('Residual Plot (Linear Regression)')
+plt.show()
+
+# Line Plot (Actual vs. Predicted) for Linear Regression
+plt.plot(y_test, label='Actual Prices', color='blue')
+plt.plot(y_pred_lr, label='Predicted Prices', color='green')
+plt.xlabel('Data Point')
+plt.ylabel('Price')
+plt.legend()
+plt.title('Actual vs. Predicted Prices (Line Plot) - Linear Regression')
+plt.show()
+
+# Line Plot (Actual vs. Predicted) for Lasso Regression
+plt.plot(y_test, label='Actual Prices', color='blue')
+plt.plot(y_pred_lasso, label='Predicted Prices', color='green')
+plt.xlabel('Data Point')
+plt.ylabel('Price')
+plt.legend()
+plt.title('Actual vs. Predicted Prices (Line Plot) - Lasso Regression')
+plt.show()
+
+# Line Plot (Actual vs. Predicted) for Ridge Regression
+plt.plot(y_test, label='Actual Prices', color='blue')
+plt.plot(y_pred_ridge, label='Predicted Prices', color='green')
+plt.xlabel('Data Point')
+plt.ylabel('Price')
+plt.legend()
+plt.title('Actual vs. Predicted Prices (Line Plot) - Ridge Regression')
+plt.show()
+
+# Line Plot (Actual vs. Predicted) for Decision Tree
+plt.plot(y_test, label='Actual Prices', color='blue')
+plt.plot(y_pred_dt, label='Predicted Prices', color='green')
+plt.xlabel('Data Point')
+plt.ylabel('Price')
+plt.legend()
+plt.title('Actual vs. Predicted Prices (Line Plot) - Decision Tree')
+plt.show()
+
+# Line Plot (Actual vs. Predicted) for Random Forest
+plt.plot(y_test, label='Actual Prices', color='blue')
+plt.plot(y_pred_rf, label='Predicted Prices', color='green')
+plt.xlabel('Data Point')
+plt.ylabel('Price')
+plt.legend()
+plt.title('Actual vs. Predicted Prices (Line Plot) - Random Forest')
+plt.show()
+
+# Line Plot (Actual vs. Predicted) for XGBoost
+plt.plot(y_test, label='Actual Prices', color='blue')
+plt.plot(y_pred_xgb, label='Predicted Prices', color='green')
+plt.xlabel('Data Point')
+plt.ylabel('Price')
+plt.legend()
+plt.title('Actual vs. Predicted Prices (Line Plot) - XGBoost')
+plt.show()
+
+# Line Plot (Actual vs. Predicted) for SVR
+plt.plot(y_test, label='Actual Prices', color='blue')
+plt.plot(y_pred_svr, label='Predicted Prices', color='green')
+plt.xlabel('Data Point')
+plt.ylabel('Price')
+plt.legend()
+plt.title('Actual vs. Predicted Prices (Line Plot) - SVR')
+plt.show()
+
+# Residual Plot for Lasso Regression
+residuals_lasso = y_test - y_pred_lasso
+sns.residplot(x=y_pred_lasso, y=residuals_lasso, color='green', label='Lasso Regression')
+plt.xlabel('Fitted Values')
+plt.ylabel('Residuals')
+plt.legend()
+plt.title('Residual Plot (Lasso Regression)')
+plt.show()
+
+# Residual Plot for Ridge Regression
+residuals_ridge = y_test - y_pred_ridge
+sns.residplot(x=y_pred_ridge, y=residuals_ridge, color='red', label='Ridge Regression')
+plt.xlabel('Fitted Values')
+plt.ylabel('Residuals')
+plt.legend()
+plt.title('Residual Plot (Ridge Regression)')
+plt.show()
+
+import matplotlib.pyplot as plt
+
+# Decision Tree Residual Plot
+residuals_dt = y_test - y_pred_dt
+plt.scatter(y_pred_dt, residuals_dt, c='purple', label='Decision Tree')
+plt.axhline(y=0, color='red', linestyle='--')
+plt.xlabel('Predicted Values')
+plt.ylabel('Residuals')
+plt.legend()
+plt.title('Residual Plot (Decision Tree)')
+plt.show()
+
+import matplotlib.pyplot as plt
+
+# Random Forest Residual Plot
+residuals_rf = y_test - y_pred_rf
+plt.scatter(y_pred_rf, residuals_rf, c='orange', label='Random Forest')
+plt.axhline(y=0, color='red', linestyle='--')
+plt.xlabel('Predicted Values')
+plt.ylabel('Residuals')
+plt.legend()
+plt.title('Residual Plot (Random Forest)')
+plt.show()
+
+import matplotlib.pyplot as plt
+
+# XGBoost Residual Plot
+residuals_xgb = y_test - y_pred_xgb
+plt.scatter(y_pred_xgb, residuals_xgb, c='magenta', label='XGBoost')
+plt.axhline(y=0, color='red', linestyle='--')
+plt.xlabel('Predicted Values')
+plt.ylabel('Residuals')
+plt.legend()
+plt.title('Residual Plot (XGBoost)')
+plt.show()
+
+import matplotlib.pyplot as plt
+
+# SVR Residual Plot
+residuals_svr = y_test - y_pred_svr
+plt.scatter(y_pred_svr, residuals_svr, c='cyan', label='SVR')
+plt.axhline(y=0, color='red', linestyle='--')
+plt.xlabel('Predicted Values')
+plt.ylabel('Residuals')
+plt.legend()
+plt.title('Residual Plot (SVR)')
+plt.show()
+
+# Line Plot (Actual vs. Predicted) for Linear Regression
+plt.plot(y_test, label='Actual Prices', color='blue')
+plt.plot(y_pred_lr, label='Predicted Prices', color='green')
+plt.xlabel('Data Point')
+plt.ylabel('Price')
+plt.legend()
+plt.title('Actual vs. Predicted Prices (Line Plot) - Linear Regression')
+plt.show()
+
+# Line Plot (Actual vs. Predicted) for Lasso Regression
+plt.plot(y_test, label='Actual Prices', color='blue')
+plt.plot(y_pred_lasso, label='Predicted Prices', color='green')
+plt.xlabel('Data Point')
+plt.ylabel('Price')
+plt.legend()
+plt.title('Actual vs. Predicted Prices (Line Plot) - Lasso Regression')
+plt.show()
+
+# Line Plot (Actual vs. Predicted) for Ridge Regression
+plt.plot(y_test, label='Actual Prices', color='blue')
+plt.plot(y_pred_ridge, label='Predicted Prices', color='green')
+plt.xlabel('Data Point')
+plt.ylabel('Price')
+plt.legend()
+plt.title('Actual vs. Predicted Prices (Line Plot) - Ridge Regression')
+plt.show()
+
+# Line Plot (Actual vs. Predicted) for Decision Tree
+plt.plot(y_test, label='Actual Prices', color='blue')
+plt.plot(y_pred_dt, label='Predicted Prices', color='green')
+plt.xlabel('Data Point')
+plt.ylabel('Price')
+plt.legend()
+plt.title('Actual vs. Predicted Prices (Line Plot) - Decision Tree')
+plt.show()
+
+# Line Plot (Actual vs. Predicted) for Random Forest
+plt.plot(y_test, label='Actual Prices', color='blue')
+plt.plot(y_pred_rf, label='Predicted Prices', color='green')
+plt.xlabel('Data Point')
+plt.ylabel('Price')
+plt.legend()
+plt.title('Actual vs. Predicted Prices (Line Plot) - Random Forest')
+plt.show()
+
+# Line Plot (Actual vs. Predicted) for XGBoost
+plt.plot(y_test, label='Actual Prices', color='blue')
+plt.plot(y_pred_xgb, label='Predicted Prices', color='green')
+plt.xlabel('Data Point')
+plt.ylabel('Price')
+plt.legend()
+plt.title('Actual vs. Predicted Prices (Line Plot) - XGBoost')
+plt.show()
+
+# Line Plot (Actual vs. Predicted) for SVR
+plt.plot(y_test, label='Actual Prices', color='blue')
+plt.plot(y_pred_svr, label='Predicted Prices', color='green')
+plt.xlabel('Data Point')
+plt.ylabel('Price')
+plt.legend()
+plt.title('Actual vs. Predicted Prices (Line Plot) - SVR')
+plt.show()
+
