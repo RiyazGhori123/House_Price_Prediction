@@ -1,10 +1,10 @@
 import numpy as np
 import pandas as pd
-
-data=pd.read_csv("House_Price_Prediction/Banglore_dataset/Bengaluru_House_Data.csv")
+# reading the dataset
+data=pd.read_csv("Banglore_dataset\Bengaluru_House_Data.csv")
 
 data.head()
-
+# Describes the shape of the file
 data.shape
 
 data.info()
@@ -14,7 +14,7 @@ for column in data.columns:
   print("*"*20)
 
 data.isna().sum()
-
+# Removing unnecessry columns
 data.drop(columns=['area_type','availability','society','balcony'],inplace=True)
 
 data.describe()
@@ -85,6 +85,7 @@ data.shape
 
 data.price_per_sqft.describe()
 
+# Removing outliers
 def remove_outliers_sqft(df):
   df_output=pd.DataFrame()
   for key,subdf in df.groupby('location'):
@@ -210,7 +211,7 @@ preprocessor = ColumnTransformer(
         ('cat', OneHotEncoder(), categorical_features)  # Categorical features
     ])
 
-# Create a pipeline that combines preprocessing and DecisionTreeRegressor
+# Creating a pipeline that combines preprocessing and DecisionTreeRegressor
 pipeline = Pipeline([
     ('preprocessor', preprocessor),
     ('regressor', DecisionTreeRegressor())
@@ -231,14 +232,14 @@ from sklearn.metrics import r2_score
 categorical_features = ['location']
 numeric_features = [col for col in X.columns if col not in categorical_features]
 
-# Create a ColumnTransformer to handle categorical features
+# Creating a ColumnTransformer to handle categorical features
 preprocessor = ColumnTransformer(
     transformers=[
         ('num', 'passthrough', numeric_features),  # Numeric features
         ('cat', OneHotEncoder(), categorical_features)  # Categorical features
     ])
 
-# Create a pipeline that combines preprocessing and RandomForestRegressor
+# Creating a pipeline that combines preprocessing and RandomForestRegressor
 pipeline = Pipeline([
     ('preprocessor', preprocessor),
     ('regressor', RandomForestRegressor())
@@ -255,7 +256,7 @@ print("Random Forest R-squared:", r2_score_rf)
 import xgboost as xgb
 from sklearn.preprocessing import OneHotEncoder
 
-# Create a OneHotEncoder to convert categorical features to one-hot encoding
+# Creating a OneHotEncoder to convert categorical features to one-hot encoding
 encoder = OneHotEncoder(sparse=False, handle_unknown='ignore')
 
 # Assuming 'location' is a categorical variable
@@ -269,7 +270,7 @@ X_test_encoded = encoder.transform(X_test[categorical_features])
 dtrain = xgb.DMatrix(X_train_encoded, label=y_train)
 dtest = xgb.DMatrix(X_test_encoded)
 
-# Create and configure the XGBoost regressor
+# Creating and configuring the XGBoost regressor
 xgb_reg = xgb.XGBRegressor()
 
 # Train the XGBoost regressor
@@ -292,7 +293,7 @@ from sklearn.metrics import r2_score
 categorical_columns = ['location']  # Add more if needed
 numeric_columns = [col for col in X.columns if col not in categorical_columns]
 
-# Create transformers for preprocessing
+# Creating transformers for preprocessing
 categorical_transformer = Pipeline(steps=[
     ('onehot', OneHotEncoder(handle_unknown='ignore'))
 ])
@@ -301,14 +302,14 @@ numeric_transformer = Pipeline(steps=[
     ('scaler', StandardScaler())
 ])
 
-# Combine transformers into a preprocessor
+# Combining transformers into a preprocessor
 preprocessor = ColumnTransformer(
     transformers=[
         ('num', numeric_transformer, numeric_columns),
         ('cat', categorical_transformer, categorical_columns)
     ])
 
-# Create a pipeline that includes preprocessing and SVR
+# Creating a pipeline that includes preprocessing and SVR
 svr = SVR(kernel='linear')
 model = Pipeline(steps=[('preprocessor', preprocessor),
                         ('svr', svr)])
