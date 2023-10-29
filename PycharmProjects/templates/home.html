@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home</title>
+    <style>
+        
+        body {
+            background-image: url('{{ url_for('static', filename='house.jpg') }}');
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            
+            display: flex;
+            background-repeat: no-repeat;
+         
+            height: 100vh;
+            margin: 30;
+            position: absolute;
+        }
+
+    }
+    body::before{
+      content: "";
+      background-image: inherit;
+      filter: blur(10px); /* Adjust the blur strength as needed */
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    h2{
+        margin-top:80px;
+        margin-left: 50px;
+        font-size: 30px;
+        }
+    h1{
+        font-size: 50px;
+        margin-left: 50px;
+    }
+    input[type=submit] {
+        background-color:#000000;
+        margin-left: 50px;
+        color: white;
+        cursor:pointer;
+        padding: 16px 32px;
+     }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Welcome to</h2>
+        <h1>House Price Prediction System</h1>
+        <form action="index" method="get">
+            <input type="submit" value="START" class="btn btn-primary">
+        </form>
+    </div>
+</body>
+</html>

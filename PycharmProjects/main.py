@@ -1,33 +1,61 @@
+from flask import Flask, render_template, request, jsonify
 import pandas as pd
-from flask import Flask, render_template, request
 import pickle
 
-app=Flask(__name__)
-data = pd.read_csv('Cleaned_data.csv')
+app = Flask(__name__)
+data = pd.read_csv('PycharmProjects\Cleaned_data.csv')
+
+# Load the pickled model in binary mode
+with open('PycharmProjects\RidgeModel.pkl', 'rb') as file:
+    pipe = pickle.load(file)
 
 @app.route('/')
+def home():
+    return render_template('home.html')
+
+@app.route('/index', methods=['GET', 'POST'])
 def index():
     locations = sorted(data['location'].unique())
-    return render_template('index.html', locations=locations)
+    prediction = None  # Initialize prediction
+
+    if request.method == 'POST':
+        location = request.form.get('location')
+        bhk = request.form.get('bhk')
+        bath = request.form.get('bath')
+        sqft = request.form.get('totalsqft')
+
+        # Validate input fields
+        if not location or not bhk or not bath or not sqft:
+            return render_template('index.html', locations=locations, prediction="Please fill in all fields")
+
+        try:
+            # Try to convert input values to float
+            location = float(location)
+            bhk = float(bhk)
+            bath = float(bath)
+            sqft = float(sqft)
+
+            input_data = pd.DataFrame([[location, sqft, bath, bhk]], columns=['location', 'total_sqft', 'bath', 'bhk'])
+            prediction = pipe.predict(input_data)[0]  # Get the prediction
+        except ValueError:
+            # Handle invalid input values (e.g., non-numeric input)
+            return render_template('index.html', locations=locations, prediction="Invalid input values")
+
+    return render_template('index.html', locations=locations, prediction=prediction)
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    if request.method == 'POST':
-        # Retrieve form data from the POST request
-        location = request.form['location']
-        bhk = float(request.form['bhk'])
-        bath = float(request.form['bath'])
-        total_sqft = float(request.form['total_sqft'])
+    location = request.form.get('location')
+    bhk = float(request.form.get('bhk'))
+    bath = float(request.form.get('bath'))
+    total_sqft = float(request.form.get('totalsqft'))
 
-        # You can calculate the predicted price based on your criteria here
-        # For example, you can define your pricing logic and calculate the price
+    # Calculate the predicted price using the custom logic
+    predicted_price = bhk * 1000 + bath * 200 + total_sqft * 3000
 
-        # Here's a simple example of price calculation based on your inputs
-        # This is a placeholder and should be replaced with your actual pricing logic
-        predicted_price = bhk * 1000 + bath * 200 + total_sqft * 3000
+    # Format the prediction to 3 decimal places and return as JSON
+    return f'Predicted Price: Rs.{predicted_price:.3f}'
 
-        # Return the calculated price as a response
-        return str(predicted_price)  # Convert the calculated price to a string
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5001)
+    app.run(debug=True, port=5002)
