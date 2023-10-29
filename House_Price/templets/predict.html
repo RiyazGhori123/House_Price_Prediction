@@ -1,0 +1,88 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  
+    
+    <style>
+        body{
+            background-image:url("{%static 'bg1.jpg' %}");
+             background-repeat: no-repeat; 
+             background-attachment: fixed; 
+             background-size: cover;
+        }
+        .main{
+            position:relative;
+            top:120px;
+            left:350px;
+            width:700px;
+            background-color:gainsboro;
+            align-items:center;
+            border-radius:5%;
+        }
+        div{
+            padding:10px;
+        }
+        input[type=submit]{
+            background-color:Black;
+            color:white;
+            cursor:pointer;
+            padding: 16px 32px;
+        }
+        h1{
+            font-size:40px;
+        }
+        h2{
+            font-size:30px;
+            color:DarkRed;
+        }
+    </style>
+</head>
+<body style="text-align: center;">
+    <div class="main">
+        <h1>Please select values:</h1>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  
+        <form action="result">
+            <div class="row">
+                <div class="col-sm-4" style="background-color: bisque;">
+                    <label><b>Select the Location</b></label>
+                    <select class="selectpicker" id="Location" name ="Location" required"1">
+
+                    </select>
+                </div>
+                <div class="col-sm-4" style="background-color: turquoise;">
+                     <label><b>Enter BHK:</b></label>
+                     <input type="text" class="form-control" id ="bhk" name="bhk" placeholder="Enter BHK">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4" style="background-color: darkseagreen;">
+                    <label><b>Enter Number of Bathrooms:</b></label>
+                    <input type="text" class="form-control" id ="bath" name="bath" placeholder="no of bathrooms">
+               </div>
+               <div class="col-sm-4" style="background-color: lightpink;">
+                    <label><b>Enter Square Feet:</b></label>
+                     <input type="text" class="form-control" id ="total_sqft" name="total_sqft" placeholder="Square Feet">
+                </div>
+            </div>
+            <div class="row">
+                <input type="submit" value="PREDICT">
+            </div>
+        </form>
+        <div class="row">
+            <h2>{result2}</h2>
+        </div>
+    </div>
+</body>
+</html>
