@@ -2,7 +2,6 @@ import numpy as np
 import pandas as pd
 
 data=pd.read_csv("House_Price_Prediction/Banglore_dataset/Bengaluru_House_Data.csv")
-
 data.head()
 
 data.shape
