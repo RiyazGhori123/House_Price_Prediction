@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Home</title>
@@ -39,21 +39,82 @@
         margin-left: 50px;
     }
     input[type=submit] {
-        background-color:#000000;
+        background-color:#b7790d;
         margin-left: 50px;
-        color: white;
+        color: rgb(11, 11, 11);
         cursor:pointer;
         padding: 16px 32px;
      }
     </style>
 </head>
-<body>
+<body >
     <div class="card">
         <h2>Welcome to</h2>
         <h1>House Price Prediction System</h1>
         <form action="index" method="get">
             <input type="submit" value="START" class="btn btn-primary">
         </form>
+    </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home</title>
+    <style>
+        body {
+            background-image: url('{{ url_for('static', filename='bg.jpg') }}');
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 50px;
+        }
+
+        .start-button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        .start-button:hover {
+            background-color: #2980b9;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Welcome to</h2>
+        <h1>House Price Prediction System</h1>
+        <button class="start-button" onclick="location.href='index'">START</button>
     </div>
 </body>
 </html>

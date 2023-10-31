@@ -5,11 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>House Price Predictor</title>
+    <style>
+        body {
+            background-image: url('/static/bg1.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
 </head>
-<body style="background-color: #5C6BC0; color: #5C6BC0 ;">
+<body style="text-align: center;">
 <div class="container">
-    <div class="row">
-        <div class="card" style="margin-top: 100px;background-color:#000000; border: 1px solid #1976D2; border-radius: 10px;  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); color: #FFFFFF ;">
+    <div class="row" style="text-align: center;">
+        <div class="card" style="margin-top: 100px;background-color:#4d4d4f; border: 1px solid #1976D2; border-radius: 10px;  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); color: #FFFFFF ;">
             <div class="card-header" style="text-align: center">
                 <h1>Welcome to House Price Predictor</h1>
             </div>
@@ -24,7 +32,7 @@
                                 {% endfor %}
                             </select>
                         </div>
-                        <div class="col-md-6 form-group" style="text-align: center" >
+                        <!-- <div class="col-md-6 form-group" style="text-align: center" >
                             <label><b>Enter BHK:</b></label>
                             <input type="text" class="form-control" id="bhk" name="bhk" placeholder="Enter BHK required" autocomplete="off"  required>
                         </div>
@@ -35,10 +43,27 @@
                         <div class="col-md-6 form-group" style="text-align: center">
                             <label><b>Enter Total Square Feet:</b></label>
                             <input type="text" class="form-control" id="totalsqft" name="totalsqft" placeholder="Enter total_sqft required" autocomplete="off"  required>
+                        </div> -->
+                        <!-- <div class="col-md-12 form-group" style="text-align: center">
+                            <button type="submit" class="btn btn-primary form-control" style="background-color: #e7ae20; ">Predict Price</button>
+                        </div> -->
+                        <div class="col-md-6 form-group" style="text-align: center">
+                            <label><b>Enter BHK:</b></label>
+                            <input type="number" class="form-control" id="bhk" name="bhk" placeholder="Enter BHK required" autocomplete="off" required min="1" max="16">
                         </div>
+                        <div class="col-md-6 form-group" style="text-align: center">
+                            <label><b>Enter Number of Bathrooms:</b></label>
+                            <input type="number" class="form-control" id="bath" name="bath" placeholder="Enter number of bathrooms required" autocomplete="off" required min="1" max="16">
+                        </div>
+                        <div class="col-md-6 form-group" style="text-align: center">
+                            <label><b>Enter Total Square Feet:</b></label>
+                            <input type="number" class="form-control" id="totalsqft" name="totalsqft" placeholder="Enter total_sqft required" autocomplete="off" required min="300" max="30000">
+                        </div>
+                        
                         <div class="col-md-12 form-group" style="text-align: center">
-                            <button type="submit" class="btn btn-primary form-control" style="background-color: #3F51B5;">Predict Price</button>
+                            <button type="submit" class="btn btn-primary form-control" style="background-color: #e7ae20; font-size: 18px; width: 130px;">Predict Price</button>
                         </div>
+                        
                     </div>
                 </form>
                 <br>

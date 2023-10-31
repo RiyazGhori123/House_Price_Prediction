@@ -1,13 +1,7 @@
 import numpy as np
 import pandas as pd
-<<<<<<< HEAD
 
 data=pd.read_csv("House_Price_Prediction/Banglore_dataset/Bengaluru_House_Data.csv")
-=======
-# reading the dataset
-data=pd.read_csv("Banglore_dataset\Bengaluru_House_Data.csv")
-
->>>>>>> b3d9b18454e846cb919ceb273d4a08c44fef46ee
 data.head()
 # Describes the shape of the file
 data.shape
