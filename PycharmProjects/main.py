@@ -51,7 +51,7 @@ def predict():
     total_sqft = float(request.form.get('totalsqft'))
 
     # Calculate the predicted price using the custom logic
-    predicted_price = bhk * 1000 + bath * 200 + total_sqft * 3000
+    predicted_price = bhk * 100 + bath * 200 + total_sqft * 300
 
     # Format the prediction to 3 decimal places and return as JSON
     return f'Predicted Price: Rs.{predicted_price:.3f}'
