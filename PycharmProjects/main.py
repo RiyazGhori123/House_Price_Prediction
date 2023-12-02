@@ -65,10 +65,10 @@ import pandas as pd
 import pickle
 
 app = Flask(__name__)
-data = pd.read_csv('Cleaned_data.csv')
+data = pd.read_csv('./PycharmProjects/Cleaned_data.csv')
 
 # Load the pickled model in binary mode
-with open('RidgeModel.pkl', 'rb') as file:
+with open('./PycharmProjects/RidgeModel.pkl', 'rb') as file:
     pipe = pickle.load(file)
 
 @app.route('/')
@@ -117,7 +117,7 @@ def predict():
     predicted_price = pipe.predict(input_data)[0]
 
     # Format the prediction to 3 decimal places and return as JSON
-    return jsonify({'predicted_price': f'Rs. {predicted_price:.3f}'})
+    return jsonify({'Predicted_price': f'Rs. {predicted_price:.3f}'})
 
 if __name__ == "__main__":
     app.run(debug=True, port=5002)

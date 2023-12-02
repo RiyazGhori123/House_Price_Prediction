@@ -5,17 +5,15 @@ cachetools==5.3.2
 certifi==2023.11.17
 charset-normalizer==3.3.2
 colorama==0.4.6
-<<<<<<< HEAD
-contourpy>=1.1.1,<1.3.0
 comm==0.2.0
-=======
-contourpy==1.2.0  # Updated to version 1.2.0
->>>>>>> e72eeac116a51468d62584bfcf370e79a63a9eca
+contourpy==1.2.0
 cycler==0.11.0
 debugpy==1.8.0
 decorator==5.1.1
+docker==6.1.3
 exceptiongroup==1.1.3
 executing==2.0.1
+Flask==2.0.1
 flatbuffers==23.5.26
 fonttools==4.45.0
 gast==0.5.4
@@ -59,11 +57,7 @@ Pygments==2.17.1
 pyparsing==3.1.1
 python-dateutil==2.8.2
 pytz==2023.3.post1
-<<<<<<< HEAD
-#pywin32
-=======
-pywin32
->>>>>>> e72eeac116a51468d62584bfcf370e79a63a9eca
+#pywin32==306
 pyzmq==25.1.1
 requests==2.31.0
 requests-oauthlib==1.3.1
@@ -83,9 +77,10 @@ termcolor==2.3.0
 threadpoolctl==3.2.0
 tornado==6.3.3
 traitlets==5.13.0
-typing-extensions==4.8.0
+#typing_extensions==4.8.0
 tzdata==2023.3
 urllib3==2.1.0
 wcwidth==0.2.10
+websocket-client==1.6.4
 Werkzeug==3.0.1
 wrapt==1.14.1
