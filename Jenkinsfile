@@ -3,14 +3,14 @@ pipeline {
 
     stages {
 
-        stage('Setup') {
-            steps {
-                script {
-                    sh "docker stop app_container || true"
-                    sh "docker rm app_container || true"
-                }
-            }
-        }
+        // stage('Setup') {
+        //     steps {
+        //         script {
+        //             sh "docker stop app_container || true"
+        //             sh "docker rm app_container || true"
+        //         }
+        //     }
+        // }
 
         stage('Build Docker Image') {
             steps {
