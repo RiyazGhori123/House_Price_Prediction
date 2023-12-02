@@ -29,9 +29,10 @@ pipeline {
 
         stage('Run Docker Image') {
             steps {
+                script{
                 // sh 'docker run -d -p 5000:5000 --name app_container app'
                 sleep 18
-
+                }
             }
         }
 
