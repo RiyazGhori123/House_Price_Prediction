@@ -117,7 +117,7 @@ def predict():
     predicted_price = pipe.predict(input_data)[0]
 
     # Format the prediction to 3 decimal places and return as JSON
-    return jsonify({'predicted_price': f'Rs. {predicted_price:.3f}'})
+    return jsonify({'predicted_price': f'Rs. {predicted_price:.3f} Lakhs'''})
 
 if __name__ == "__main__":
     app.run(debug=True, port=5002)
