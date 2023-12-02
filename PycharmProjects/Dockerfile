@@ -1,5 +1,5 @@
 # Use a base image with Python and other dependencies
-FROM python:3.9
+FROM python:3.12
 
 # Set the working directory in the container
 WORKDIR /app
@@ -21,4 +21,4 @@ EXPOSE 5000
 ENV NAME World
 
 # Command to run the application
-CMD ["python", "app.py"]
+CMD ["python", "main.py"]
