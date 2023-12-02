@@ -3,21 +3,23 @@ pipeline {
 
     stages {
 
-        // stage('Setup') {
-        //     steps {
-        //         script {
-        //             sh "docker stop app_container || true"
-        //             sh "docker rm app_container || true"
-        //         }
-        //     }
-        // }
+        stage('Setup') {
+            steps {
+                script {
+                    // sh "docker stop app_container || true"
+                    // sh "docker rm app_container || true"
+                    sleep 10
+                }
+            }
+        }
 
         stage('Build Docker Image') {
             steps {
                 // dir('./PycharmProjects') {
                     script {
                         // Run the command to build a Docker image
-                        sh 'docker build -t capstone_app .'
+                        // sh 'docker build -t capstone_app .'
+                        sleep 10
                         
                     }
                 // }
@@ -27,7 +29,8 @@ pipeline {
 
         stage('Run Docker Image') {
             steps {
-                sh 'docker run -d -p 5000:5000 --name app_container app'
+                // sh 'docker run -d -p 5000:5000 --name app_container app'
+                sleep 10
 
             }
         }
