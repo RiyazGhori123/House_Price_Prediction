@@ -29,17 +29,20 @@ pipeline {
 
         stage('Run Docker Image') {
             steps {
-                script{
                 // sh 'docker run -d -p 5000:5000 --name app_container app'
                 sleep 18
-                }
+
             }
         }
 
         stage('Email notification'){
+            steps {
+                script{
             mail bcc: '', body: '''Hi welcome to Jenkins alert messages.
                 Thanks,
                 Team 24''', cc: '', from: '', replyTo: '', subject: 'Jenkins Job', to: 'nagarjunadoguparthy@gmail.com'
+                }
+            }
         }
 
         stage('Wait for Docker Container') {
