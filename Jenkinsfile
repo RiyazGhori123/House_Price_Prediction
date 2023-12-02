@@ -3,34 +3,34 @@ pipeline {
 
     stages {
 
-        stage('Setup') {
-            steps {
-                script {
-                    sh "docker stop app_container || true"
-                    sh "docker rm app_container || true"
-                }
-            }
-        }
+        // stage('Setup') {
+        //     steps {
+        //         script {
+        //             sh "docker stop app_container || true"
+        //             sh "docker rm app_container || true"
+        //         }
+        //     }
+        // }
 
-        stage('Build Docker Image') {
-            steps {
-                // dir('./PycharmProjects') {
-                    script {
-                        // Run the command to build a Docker image
-                        sh 'docker build -t app ./PycharmProjects/'
+        // stage('Build Docker Image') {
+        //     steps {
+        //         // dir('./PycharmProjects') {
+        //             script {
+        //                 // Run the command to build a Docker image
+        //                 sh 'docker build -t app ./PycharmProjects/'
                         
-                    }
-                // }
+        //             }
+        //         // }
                 
-            }
-        }
+        //     }
+        // }
 
-        stage('Run Docker Image') {
-            steps {
-                sh 'docker run -d -p 4050:80 --name app_container app'
+        // stage('Run Docker Image') {
+        //     steps {
+        //         sh 'docker run -d -p 4050:4050 --name app_container app'
 
-            }
-        }
+        //     }
+        // }
 
         stage('Wait for Docker Container') {
             steps {
