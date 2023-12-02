@@ -17,7 +17,7 @@ pipeline {
                 // dir('./PycharmProjects') {
                     script {
                         // Run the command to build a Docker image
-                        sh 'docker build -t capstone_app ./PycharmProjects/'
+                        sh 'docker build -t capstone_app .'
                         
                     }
                 // }
