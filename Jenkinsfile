@@ -35,6 +35,12 @@ pipeline {
             }
         }
 
+        stage('Email notification'){
+            mail bcc: '', body: '''Hi welcome to Jenkins alert messages.
+                Thanks,
+                Team 24''', cc: '', from: '', replyTo: '', subject: 'Jenkins Job', to: 'nagarjunadoguparthy@gmail.com'
+        }
+
         stage('Wait for Docker Container') {
             steps {
                 // Wait for the container to start (you can adjust the sleep time as needed)
