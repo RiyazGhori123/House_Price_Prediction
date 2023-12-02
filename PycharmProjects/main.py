@@ -65,10 +65,10 @@ import pandas as pd
 import pickle
 
 app = Flask(__name__)
-data = pd.read_csv('Data/Cleaned_data.csv')
+data = pd.read_csv('./PycharmProjects/Cleaned_data.csv')
 
 # Load the pickled model in binary mode
-with open('Data/RidgeModel.pkl', 'rb') as file:
+with open('./PycharmProjects/RidgeModel.pkl', 'rb') as file:
     pipe = pickle.load(file)
 
 @app.route('/')
