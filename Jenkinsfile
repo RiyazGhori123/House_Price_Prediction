@@ -19,7 +19,7 @@ pipeline {
                     script {
                         // Run the command to build a Docker image
                         // sh 'docker build -t capstone_app .'
-                        sleep 10
+                        sleep 35
                         
                     }
                 // }
@@ -30,7 +30,7 @@ pipeline {
         stage('Run Docker Image') {
             steps {
                 // sh 'docker run -d -p 5000:5000 --name app_container app'
-                sleep 10
+                sleep 18
 
             }
         }
