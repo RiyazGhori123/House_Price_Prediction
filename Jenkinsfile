@@ -40,7 +40,7 @@ pipeline {
                 script{
             mail bcc: '', body: '''Hi welcome to Jenkins alert messages.
                 Thanks,
-                Team 24''', cc: '', from: '', replyTo: '', subject: 'Jenkins Job', to: 'nagarjunadoguparthy@gmail.com', 'gritika2k3@gmail.com '
+                Team 24''', cc: '', from: '', replyTo: '', subject: 'Jenkins Job', to: 'nagarjunadoguparthy@gmail.com'
                 }
             }
         }
