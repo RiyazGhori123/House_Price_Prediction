@@ -12,18 +12,18 @@ pipeline {
         //     }
         // }
 
-        // stage('Build Docker Image') {
-        //     steps {
-        //         // dir('./PycharmProjects') {
-        //             script {
-        //                 // Run the command to build a Docker image
-        //                 sh 'docker build -t app ./PycharmProjects/'
+        stage('Build Docker Image') {
+            steps {
+                // dir('./PycharmProjects') {
+                    script {
+                        // Run the command to build a Docker image
+                        sh 'docker build -t capstone_app .'
                         
-        //             }
-        //         // }
+                    }
+                // }
                 
-        //     }
-        // }
+            }
+        }
 
         // stage('Run Docker Image') {
         //     steps {
